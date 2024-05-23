@@ -19,8 +19,9 @@ def send_hello(message):
 
 @bot.message_handler(func=lambda message: enemy_text in message.text)
 def delete_shorts(message):
+	user_name = message.from_user.username
 	bot.delete_message(message.chat.id, message.message_id)
-	print(current_date, ' Удалён шортс - ', message.text)
+	print(current_date, f' {user_name} Удалён шортс - ', message.text)
 	bot.send_message(message.chat.id, 'ПОПЫТКА СКИНУТЬ ШОРТС ПРЕДОТВРАЩЕНА')
 
 bot.polling()
