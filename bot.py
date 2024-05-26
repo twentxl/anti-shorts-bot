@@ -3,7 +3,6 @@ import datetime
 
 bot = telebot.TeleBot('your token', parse_mode=None)
 enemy_text = 'youtube.com/shorts'
-current_date = datetime.datetime.now()
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
@@ -19,9 +18,12 @@ def send_hello(message):
 
 @bot.message_handler(func=lambda message: enemy_text in message.text)
 def delete_shorts(message):
+	current_date = datetime.datetime.now()
 	user_name = message.from_user.username
+	
 	bot.delete_message(message.chat.id, message.message_id)
 	print(current_date, f' {user_name} Удалён шортс - ', message.text)
 	bot.send_message(message.chat.id, 'ПОПЫТКА СКИНУТЬ ШОРТС ПРЕДОТВРАЩЕНА')
 
+print('Бот запущен')
 bot.polling()
