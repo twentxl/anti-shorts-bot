@@ -76,6 +76,16 @@ def handle_photo(message):
 		print(current_date, f' {user_name} Удалёна фотография')
 		bot.send_message(message.chat.id, 'Не пройдешь!!!')
 
+@bot.message_handler(content_types=['video'])
+def handle_photo(message):
+	current_date = datetime.datetime.now()
+	user_name = message.from_user.username
+
+	if user_name == 'Werokf103':
+		bot.delete_message(message.chat.id, message.message_id)
+		print(current_date, f' {user_name} Удалёно видео')
+		bot.send_message(message.chat.id, 'Не пройдешь!!!')
+
 try:
 	print('Бот запущен\n')
 	bot.polling()
