@@ -66,6 +66,16 @@ def delete_edited_shorts(message):
 	print(current_date, f' {user_name} Удалён шортс - ', message.text)
 	bot.send_message(message.chat.id, 'УБЕРИ ЭТУ ХУЙНЮ')
 
+@bot.message_handler(content_types=['photo'])
+def handle_photo(message):
+	current_date = datetime.datetime.now()
+	user_name = message.from_user.username
+
+	if user_name == 'Имя дурачка':
+		bot.delete_message(message.chat.id, message.message_id)
+		print(current_date, f' {user_name} Удалён шортс - ', message.text)
+		bot.send_message(message.chat.id, 'Не пройдешь!!!')
+
 try:
 	print('Бот запущен\n')
 	bot.polling()
