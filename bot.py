@@ -1,5 +1,6 @@
 import telebot
 import datetime
+import traceback
 
 bot = telebot.TeleBot('TOKEN', parse_mode=None)
 enemy_text = 'youtube.com'
@@ -65,5 +66,8 @@ def delete_edited_shorts(message):
 	print(current_date, f' {user_name} Удалён шортс - ', message.text)
 	bot.send_message(message.chat.id, 'УБЕРИ ЭТУ ХУЙНЮ')
 
-print('Бот запущен\n')
-bot.polling()
+try:
+	print('Бот запущен\n')
+	bot.polling()
+except:
+	traceback.print_exc()
