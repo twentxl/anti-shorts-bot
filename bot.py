@@ -71,9 +71,9 @@ def handle_photo(message):
 	current_date = datetime.datetime.now()
 	user_name = message.from_user.username
 
-	if user_name == 'Имя дурачка':
+	if user_name == 'Werokf103':
 		bot.delete_message(message.chat.id, message.message_id)
-		print(current_date, f' {user_name} Удалён шортс - ', message.text)
+		print(current_date, f' {user_name} Удалёна фотография')
 		bot.send_message(message.chat.id, 'Не пройдешь!!!')
 
 try:
