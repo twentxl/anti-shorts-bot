@@ -1,4 +1,2 @@
 # anti-shorts-bot
-telegram bot который удаляет сообщения, содержащий ссылку на youtube shorts
-
-цель создания была, потому что друг заколебал засорять беседу своими шортсами
+Telegram bot that deletes messages containing a link to short films on YouTube
